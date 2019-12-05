@@ -1,7 +1,7 @@
+import 'package:calculator/display.dart';
 import 'package:flutter/material.dart';
 
 class Calculator extends StatefulWidget {
-
   Calculator({Key key}) : super(key: key);
 
   @override
@@ -9,6 +9,7 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
+  String _output = "0";
 
   @override
   void initState() {
@@ -22,16 +23,22 @@ class _CalculatorState extends State<Calculator> {
 
   @override
   Widget build(BuildContext context) {
+    Size screen = MediaQuery.of(context).size;
+    double buttonSize = screen.width / 4;
+    double displayHeight = screen.height - (buttonSize * 5) - buttonSize;
+
     return Scaffold(
-      backgroundColor: Color.fromRGBO(196, 32, 64, 96),
+      backgroundColor: Color.fromARGB(196, 32, 64, 96),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("Display"),
+          Display(
+            value: _output,
+            height: displayHeight,
+          ),
           Text("Keypad")
         ],
       ),
     );
   }
-
 }
