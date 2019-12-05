@@ -9,21 +9,21 @@ class Display extends StatelessWidget {
   Display({Key key, this.value, this.height}) : super(key: key);
 
   String get _output => value.toString();
-  double get _martgin => (height / 10);
+  double get _martgin => (height / 10) * 1.5;
 
   @override
   Widget build(BuildContext context) {
-    TextStyle textStyle = Theme.of(context)
-        .textTheme
-        .display2
-        .copyWith(color: Colors.white, fontWeight: FontWeight.w200);
+    Size screen = MediaQuery.of(context).size;
+    double buttonSize = (screen.width / 4);
+    TextStyle textStyle = TextStyle(
+        color: Colors.white, fontWeight: FontWeight.w300, fontSize: buttonSize);
 
     return Container(
-      padding: EdgeInsets.only(top: _martgin, bottom: _martgin),
+      padding: EdgeInsets.only(top: _martgin * 2, bottom: _martgin),
       constraints: BoxConstraints.expand(height: height),
       color: Colors.black12,
       child: Container(
-        padding: EdgeInsets.fromLTRB(32, _martgin * 2, 32, 0),
+        padding: EdgeInsets.fromLTRB(32, 0, 32, 0),
         constraints: BoxConstraints.expand(height: height * 2),
         decoration: BoxDecoration(gradient: _gradient),
         child: Text(

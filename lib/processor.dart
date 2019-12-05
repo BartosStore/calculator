@@ -93,7 +93,6 @@ abstract class Processor {
   }
 
   static void _calculate() {
-    print("calculate!");
     if (_operator == null || _valB == '0') {return;}
 
     Map<KeySymbol, dynamic> table = {
