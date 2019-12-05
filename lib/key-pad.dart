@@ -1,28 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:calculator/calculator-key.dart';
 
 class KeyPad extends StatelessWidget {
-  final Map<String, String> keys = {
-    "":"",
-    "clear": "C",
-    "plusminus": "+-",
-    "percentage": "%",
-    "divide": "/",
-    "multiplication":"x",
-    "plus":"+",
-    "minus":"-",
-    "equals":"=",
-    "decimal_point":".",
-    "zero":"0",
-    "1":"1",
-    "2":"2",
-    "3":"3",
-    "4":"4",
-    "5":"5",
-    "6":"6",
-    "7":"7",
-    "8":"8",
-    "9":"9",
-  };
 
   @override
   Widget build(BuildContext context) {
@@ -31,108 +10,81 @@ class KeyPad extends StatelessWidget {
         Row(
           children: <Widget>[
             CalculatorKey(
-              symbol: keys["clear"],
+              symbol: Keys.clear,
             ),
             CalculatorKey(
-              symbol: keys["plusminus"],
+              symbol: Keys.sign,
             ),
             CalculatorKey(
-              symbol: keys["percentage"],
+              symbol: Keys.percent,
             ),
             CalculatorKey(
-              symbol: keys["divide"],
+              symbol: Keys.divide,
             )
           ],
         ),
         Row(
           children: <Widget>[
             CalculatorKey(
-              symbol: keys["7"],
+              symbol: Keys.seven,
             ),
             CalculatorKey(
-              symbol: keys["8"],
+              symbol: Keys.eight,
             ),
             CalculatorKey(
-              symbol: keys["9"],
+              symbol: Keys.nine,
             ),
             CalculatorKey(
-              symbol: keys["multiplication"],
+              symbol: Keys.multiply,
             )
           ],
         ),
         Row(
           children: <Widget>[
             CalculatorKey(
-              symbol: keys["4"],
+              symbol: Keys.four,
             ),
             CalculatorKey(
-              symbol: keys["5"],
+              symbol: Keys.five,
             ),
             CalculatorKey(
-              symbol: keys["6"],
+              symbol: Keys.six,
             ),
             CalculatorKey(
-              symbol: keys["minus"],
+              symbol: Keys.subtract,
             )
           ],
         ),
         Row(
           children: <Widget>[
             CalculatorKey(
-              symbol: keys["1"],
+              symbol: Keys.one,
             ),
             CalculatorKey(
-              symbol: keys["2"],
+              symbol: Keys.two,
             ),
             CalculatorKey(
-              symbol: keys["3"],
+              symbol: Keys.three,
             ),
             CalculatorKey(
-              symbol: keys["plus"],
+              symbol: Keys.add,
             )
           ],
         ),
         Row(
           children: <Widget>[
             CalculatorKey(
-              symbol: keys["zero"],
+              symbol: Keys.zero,
             ),
             CalculatorKey(
-              symbol: keys["decimal_point"],
+              symbol: Keys.decimal,
             ),
             CalculatorKey(
-              symbol: keys[""],
-            ),
-            CalculatorKey(
-              symbol: keys["equals"],
+              symbol: Keys.equals,
             )
           ],
         )
       ],
-    );
-  }
-}
-
-class CalculatorKey extends StatelessWidget {
-  final String symbol;
-
-  CalculatorKey({Key key, this.symbol}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    Size screen = MediaQuery.of(context).size;
-    double buttonSize = (screen.width / 4);
-    TextStyle textStyle = TextStyle(
-        color: Colors.white, fontWeight: FontWeight.w500, fontSize: buttonSize);
-
-    return Container(
-      constraints: BoxConstraints.expand(height: buttonSize, width: buttonSize),
-      decoration: BoxDecoration(border: Border.all(color: Colors.blueGrey)),
-      child: Text(
-        symbol,
-        style: textStyle,
-        textAlign: TextAlign.center,
-      ),
     );
   }
 }
