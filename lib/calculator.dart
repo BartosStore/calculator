@@ -1,4 +1,5 @@
 import 'package:calculator/display.dart';
+import 'package:calculator/key-pad.dart';
 import 'package:flutter/material.dart';
 
 class Calculator extends StatefulWidget {
@@ -25,7 +26,7 @@ class _CalculatorState extends State<Calculator> {
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
     double buttonSize = screen.width / 4;
-    double displayHeight = screen.height - (buttonSize * 5) - buttonSize;
+    double displayHeight = screen.height - (buttonSize * 4) - buttonSize;
 
     return Scaffold(
       backgroundColor: Color.fromARGB(196, 32, 64, 96),
@@ -36,7 +37,7 @@ class _CalculatorState extends State<Calculator> {
             value: _output,
             height: displayHeight,
           ),
-          Text("Keypad")
+          KeyPad()
         ],
       ),
     );
