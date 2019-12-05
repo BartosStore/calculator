@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:calculator/key-symbol.dart';
+import 'package:calculator/key-controller.dart';
 
 abstract class Keys {
   static KeySymbol clear = const KeySymbol('C');
@@ -27,8 +28,7 @@ abstract class Keys {
 class CalculatorKey extends StatelessWidget {
   final KeySymbol symbol;
 
-  // todo:
-  static dynamic _fire(CalculatorKey key) => {print(key.symbol.value)}; // KeyController.fire(KeyEvent(key));
+  static dynamic _fire(CalculatorKey key) => KeyController.fire(KeyEvent(key));
 
   CalculatorKey({this.symbol});
 
